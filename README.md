@@ -1,0 +1,15 @@
+# hmmj-h5移动端Vue基础
+
+## 面经项目 - 接口地址-接口文档地址：
+[https://www.apifox.cn/apidoc/project-934563/api-20384513](https://www.apifox.cn/apidoc/project-934563/api-20384513)
+
+接口基地址：[http://interview-api-t.itheima.net/](http://interview-api-t.itheima.net/)
+
+## vant介绍和基本使用
+
+- 官网：
+[https://vant-contrib.gitee.io/vant/v2/#/zh-CN/](https://vant-contrib.gitee.io/vant/v2/#/zh-CN/)
+
+- 演示地址：[http://xpzll.gitee.io/hmmj-demo](http://xpzll.gitee.io/hmmj-demo)
+- 账号建议自己注册，每个人用自己账号避免冲突
+
