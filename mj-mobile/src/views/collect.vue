@@ -8,13 +8,9 @@
 export default {
   name: 'collect-page',
   data () {
-    return {
-
-    }
+    return {}
   },
-  methods: {
-
-  }
+  methods: {}
 }
 </script>
 

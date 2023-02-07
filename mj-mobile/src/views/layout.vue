@@ -3,7 +3,7 @@
     首页架子 - 内容区域
 
     <router-view></router-view>
-    <van-tabbar route active-color="@blue">
+    <van-tabbar route>
       <van-tabbar-item to="/article" icon="fire-o">面经</van-tabbar-item>
       <van-tabbar-item to="/collect" icon="star-o">收藏</van-tabbar-item>
       <van-tabbar-item to="/like" icon="like-o">点赞</van-tabbar-item>
