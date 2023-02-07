@@ -1,6 +1,8 @@
 <template>
   <div class="login-page">
-    登录页
+    <!-- 登录页 -->
+    <van-button type="primary">主要按钮</van-button>
+    <van-nav-bar title="面经登录" />
   </div>
 </template>
 
@@ -10,9 +12,7 @@ export default {
   data () {
     return {}
   },
-  methods: {
-
-  }
+  methods: {}
 }
 </script>
 

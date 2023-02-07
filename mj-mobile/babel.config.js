@@ -7,6 +7,7 @@ module.exports = {
         libraryName: 'vant',
         libraryDirectory: 'es',
         style: true
+        // name => '/src/styles/xx.less'
       },
       'vant'
     ]
