@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { regAPI } from '@/api/user'
+import { registerAPI } from '@/api/user'
 export default {
   name: 'login-page',
   data () {
@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     async onSubmit () {
-      const res = await regAPI(this.user)
+      const res = await registerAPI(this.user)
       console.log(res)
     }
   }
