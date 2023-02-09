@@ -28,6 +28,8 @@
 </template>
 
 <script>
+import { loginAPI } from '@/api/user'
+import { setToken } from '@/utils/token'
 export default {
   name: 'login-page',
   data () {
@@ -49,7 +51,19 @@ export default {
       }
     }
   },
-  methods: {}
+  methods: {
+    async onSubmit () {
+      try {
+        const res = await loginAPI(this.user)
+        console.log(res)
+        this.$toast.success('登录成功')
+        setToken(res.data.token)
+        this.$router.push('/')
+      } catch {
+        // this.$toast.fail('登录失败')
+      }
+    }
+  }
 }
 </script>
 

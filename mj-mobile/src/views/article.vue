@@ -1,19 +1,55 @@
 <template>
   <div class="article-page">
-    面经页面
+    <nav class="my-nav van-hairline--bottom">
+      <a href="javascript:;">推荐</a>
+      <a href="javascript:;" class="active">最新</a>
+      <div class="logo"><img src="@/assets/logo.png" alt="" /></div>
+    </nav>
+    <!-- 上拉加载 -->
+    <van-list
+      v-model="loading"
+      :finished="finished"
+      finished-text="没有更多了"
+      @load="onLoad"
+    >
+      <Article-item
+        v-for="item in list"
+        :key="item.id"
+        :item="item"
+      ></Article-item>
+    </van-list>
   </div>
 </template>
 
 <script>
+import { articleListAPI } from '@/api/article'
 export default {
   name: 'article-page',
   data () {
     return {
-
+      list: [],
+      loading: false,
+      finished: false,
+      page: 1
     }
   },
   methods: {
-
+    async onLoad () {
+      // 异步更新数据
+      const res = await articleListAPI({
+        current: this.page,
+        pageSize: 5
+      })
+      this.page++
+      console.log(res)
+      // 不能用=进行复制，因为这样会覆盖原本的数据,我们应该在原本的数据上进行追加。this,list.push()，不能直接追加数组。...把数据展开，
+      // this.list = res.data.rows
+      this.list.push(...res.data.rows)
+      this.loading = false
+      if (this.list.length >= res.data.total) {
+        this.finished = true
+      }
+    }
   }
 }
 </script>

@@ -11,3 +11,11 @@ export const registerAPI = data => {
     data
   })
 }
+// 封装做登录的请求
+export const loginAPI = data => {
+  return request({
+    url: '/h5/user/login',
+    method: 'post',
+    data
+  })
+}

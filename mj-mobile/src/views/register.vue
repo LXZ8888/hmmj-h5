@@ -52,8 +52,14 @@ export default {
   },
   methods: {
     async onSubmit () {
-      const res = await registerAPI(this.user)
-      console.log(res)
+      try {
+        await registerAPI(this.user)
+        // console.log(res)
+        this.$router.push('/login')
+        this.$toast.success('注册成功')
+      } catch {
+        // this.$toast.fail('注册失败')
+      }
     }
   }
 }

@@ -2,7 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import '@/utils/vant'
+import ArticleItem from '@/components/ArticleItem.vue'
 Vue.config.productionTip = false
+Vue.component('ArticleItem', ArticleItem)
 
 new Vue({
   router,
