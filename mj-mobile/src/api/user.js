@@ -19,3 +19,10 @@ export const loginAPI = data => {
     data
   })
 }
+// 封装获取个人信息接口
+export const userInfo = () => {
+  return request({
+    url: '/h5/user/currentUser',
+    method: 'get'
+  })
+}

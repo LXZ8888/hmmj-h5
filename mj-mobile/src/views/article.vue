@@ -1,8 +1,18 @@
 <template>
   <div class="article-page">
     <nav class="my-nav van-hairline--bottom">
-      <a href="javascript:;">推荐</a>
-      <a href="javascript:;" class="active">最新</a>
+      <a
+        href="javascript:;"
+        :class="{ active: type == 'weight_desc' }"
+        @click="changeTab('weight_desc')"
+        >推荐</a
+      >
+      <a
+        href="javascript:;"
+        :class="{ active: type != 'weight_desc' }"
+        @click="changeTab()"
+        >最新</a
+      >
       <div class="logo"><img src="@/assets/logo.png" alt="" /></div>
     </nav>
     <!-- 上拉加载 -->
@@ -27,6 +37,7 @@ export default {
   name: 'article-page',
   data () {
     return {
+      type: 'weight_desc',
       list: [],
       loading: false,
       finished: false,
@@ -34,11 +45,20 @@ export default {
     }
   },
   methods: {
+    changeTab (type) {
+      this.type = type
+      this.list = []
+      // 有可能页码已经发生变化了
+      this.page = 1
+      this.loading = this.finished = false
+      this.onLoad()
+    },
     async onLoad () {
       // 异步更新数据
       const res = await articleListAPI({
         current: this.page,
-        pageSize: 5
+        pageSize: 10,
+        sorter: this.type
       })
       this.page++
       console.log(res)

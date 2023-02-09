@@ -10,9 +10,17 @@ import {
   Cell,
   Loading,
   PullRefresh,
-  List
+  List,
+  Icon,
+  Grid,
+  GridItem,
+  CellGroup
 } from 'vant'
 
+Vue.use(CellGroup)
+Vue.use(Grid)
+Vue.use(GridItem)
+Vue.use(Icon)
 Vue.use(List)
 Vue.use(PullRefresh)
 

@@ -1,7 +1,5 @@
 <template>
   <div class="layout-page">
-    首页架子 - 内容区域
-
     <router-view></router-view>
     <van-tabbar route>
       <van-tabbar-item to="/article" icon="fire-o">面经</van-tabbar-item>

@@ -1,22 +1,59 @@
 <template>
   <div class="user-page">
-    我的
+    <div class="user">
+      <img :src="userInfo.avatar" alt="" />
+      <h3>{{ userInfo.username }}</h3>
+    </div>
+
+    <!-- 记录区域 -->
+    <van-grid :column-num="3" :border="false">
+      <van-grid-item
+        @click="$router.push('/article')"
+        icon="clock-o"
+        text="历史记录"
+      />
+      <van-grid-item
+        @click="$router.push('/collect')"
+        icon="bookmark-o"
+        text="我的收藏"
+      />
+      <van-grid-item
+        @click="$router.push('/like')"
+        icon="thumb-circle-o"
+        text="我的点赞"
+      />
+    </van-grid>
+    <!-- 功能区域 -->
+
+    <van-cell-group style="margin-top: 20px;">
+      <van-cell title="推荐分享" is-link />
+      <van-cell title="意见反馈" is-link />
+      <van-cell title="关于我们" is-link />
+      <van-cell title="退出登录" is-link @click="logout" />
+    </van-cell-group>
   </div>
 </template>
 
 <script>
+import { removeToken } from '@/utils/token'
+import { userInfo } from '@/api/user.js'
 export default {
   name: 'user-page',
   data () {
     return {
-
+      userInfo: {}
     }
   },
   async created () {
-
+    const res = await userInfo()
+    this.userInfo = res.data
   },
   methods: {
-
+    logout () {
+      removeToken()
+      this.$router.push('/login')
+      this.$toast.success('退出成功')
+    }
   }
 }
 </script>

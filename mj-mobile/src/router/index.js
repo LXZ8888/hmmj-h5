@@ -34,7 +34,7 @@ const routes = [
   },
   {
     name: 'detail',
-    path: '/detail',
+    path: '/detail/:id',
     component: detail
   }
 ]
@@ -42,7 +42,7 @@ const router = new VueRouter({
   routes
 })
 // 如果我要去的路径是/collect那就放行到/login，如果去的别的页面，那就直接放行。
-const whiteList = ['/login', 'register']
+const whiteList = ['/login', '/register']
 router.beforeEach((to, from, next) => {
   // console.log(to, from)
   if (whiteList.includes(to.path)) {
